@@ -20,9 +20,21 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FVector GetMaxGrabLocation() const;
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly) 
+	float MaxGrabDistance = 100;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float HoldDistance = 100;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float GrabRadius = 100;
 };
